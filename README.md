@@ -52,21 +52,6 @@ figma-survey-app/
 └── vite.config.js       # Configuración básica de empaquetado de Vite
 ```
 
-## Cómo cambiar el enlace del prototipo de Figma
-
-1. Entra a tu proyecto en Figma.
-2. Haz clic en "Share" (Compartir).
-3. Selecciona la pestaña "Get embed code" (Obtener código de incrustación).
-4. Copia el valor de la propiedad `src` (el enlace URL que está dentro del atributo src="...").
-5. Abre el archivo `src/App.jsx`.
-6. En la línea donde se define `const FIGMA_EMBED_URL = "..."`, pega tu nuevo enlace.
-
-## Cómo modificar las preguntas de la encuesta
-
-1. Para cambiar los textos o agregar nuevas preguntas, abre `src/components/SurveyForm.jsx`.
-2. Para añadir una nueva pregunta, agrega el nuevo campo al estado inicial `formData` (ej. `nuevaPregunta: ''`).
-3. Clona un bloque de JSX (por ejemplo, el de "Design Feedback") y ajusta las etiquetas `id`, `name`, y la descripción para empatarlo con tu nueva propiedad en el estado.
-
 
 ## Capturas de pantalla del proyecto
 ![alt text](/Ejem/image.png)
