@@ -1,58 +1,67 @@
 # Figma Survey App
 
-Esta es una aplicación web desarrollada con React, Vite y TailwindCSS diseñada para presentar un prototipo interactivo de Figma de tu aplicación móvil junto con una encuesta para recolectar opiniones de los usuarios.
+Esta es una aplicación web moderna desarrollada con **React**, **Vite**, **TailwindCSS** y **Supabase**, diseñada para presentar prototipos interactivos de Figma junto con un sistema de encuestas y un panel de administración para la gestión de datos.
 
-## Descripción del Proyecto
+## 🚀 Características Principales
 
-La aplicación tiene un diseño moderno, limpio y minimalista (estilo "Glassmorphism"). La pantalla se divide en dos secciones principales:
-1. **Visualizador de Prototipo:** Un iframe integrado que muestra tu diseño interactivo de Figma.
-2. **Encuesta de Usuario:** Un formulario elegante en el que el usuario puede calificar su experiencia, indicar la facilidad de uso, comentar el diseño y aportar áreas de mejora.
+- **Visualizador de Prototipos**: Integración fluida de prototipos de Figma mediante iframes dinámicos.
+- **Encuestas en Tiempo Real**: Formulario elegante con validación y envío de datos a Supabase.
+- **Panel de Administración**: Visualización, filtrado y exportación de respuestas de encuestas.
+- **Exportación a Excel**: Herramienta integrada para descargar las respuestas en formato `.xlsx`.
+- **Diseño Glassmorphism**: Interfaz moderna con efectos de transparencia y fondos dinámicos.
+- **Responsive**: Totalmente optimizado para dispositivos móviles y escritorio.
 
-## Requisitos para ejecutarlo
+## 🛠️ Tecnologías Utilizadas
 
-Dado que probablamente tu sistema no tiene **Node.js** ni **npm** instalados, es indispensable que los instales primero para poder probar este proyecto en local:
-1. Descarga e instala Node.js desde la [página oficial](https://nodejs.org/).
-2. Asegúrate de instalar la versión LTS (Recomendada para la mayoría).
-3. Una vez instalado, reinicia tu terminal o línea de comandos.
+- **Frontend**: React 18, Vite, TailwindCSS.
+- **Backend / Base de Datos**: Supabase (PostgreSQL).
+- **Estado**: Zustand (Store centralizado).
+- **Iconos**: Lucide React.
+- **Utilidades**: React Router Dom v7, XLSX.
 
-## Instalación de dependencias
+## 📋 Requisitos para Ejecución Local
 
-Abre tu terminal, navega a la carpeta de este proyecto (`figma-survey-app`) y ejecuta:
+1. **Instalar Node.js**: Descarga la versión LTS desde [nodejs.org](https://nodejs.org/).
+2. **Configurar Supabase**:
+   - Crea un proyecto en [Supabase](https://supabase.com/).
+   - Ejecuta el script `supabase_setup.sql` en el SQL Editor de Supabase para crear las tablas necesarias.
+3. **Variables de Entorno**:
+   - Crea un archivo `.env` en la raíz basado en `.env.example`.
+   - Agrega tus credenciales:
+     ```env
+     VITE_SUPABASE_URL=tu_url_de_supabase
+     VITE_SUPABASE_ANON_KEY=tu_anon_key
+     ```
+
+## 🔧 Instalación y Uso
 
 ```bash
-cd figma-survey-app
+# Instalar dependencias
 npm install
-```
 
-## Cómo iniciar el proyecto
-
-Para correr el servidor de desarrollo en modo local, ejecuta:
-
-```bash
+# Iniciar servidor de desarrollo
 npm run dev
 ```
 
-Luego abre tu navegador en la URL que indique la consola (usualmente `http://localhost:5173`).
-
-## Explicación de la estructura del proyecto
+## 📂 Estructura del Proyecto
 
 ```text
 figma-survey-app/
-├── public/              # Archivos estáticos
 ├── src/
-│   ├── components/      # Componentes reutilizables de UI
-│   │   ├── FigmaEmbed.jsx     # Componente encargado de renderizar el iframe
-│   │   ├── SurveyForm.jsx     # Formulario de la encuesta principal
-│   │   └── SuccessView.jsx    # Pantalla de éxito tras el envío
-│   ├── App.jsx          # Aplicación principal donde se maneja el estado del formulario global
-│   ├── index.css        # Directivas de Tailwind y utilidades CSS globales (glass, etc.)
-│   └── main.jsx         # Punto de entrada de la aplicación React
-├── package.json         # Dependencias del proyecto
-├── tailwind.config.js   # Configuración de los estilos, colores y animaciones de Tailwind
-└── vite.config.js       # Configuración básica de empaquetado de Vite
+│   ├── components/      # Componentes UI (FigmaEmbed, SurveyForm, SuccessView, etc.)
+│   ├── lib/             # Configuración de librerías externas (supabase.js)
+│   ├── pages/           # Vistas principales (SurveyPage, AdminPage)
+│   ├── store/           # Gestión de estado global (useAppStore.js)
+│   ├── App.jsx          # Enrutamiento principal (React Router)
+│   ├── index.css        # Estilos globales y Tailwind CSS
+│   └── main.jsx         # Punto de entrada
+├── supabase_setup.sql   # Script SQL para la base de datos
+├── .env.example         # Plantilla de variables de entorno
+├── .gitignore           # Archivos e historial excluidos de Git
+├── package.json         # Dependencias y scripts
+└── tailwind.config.js   # Personalización de Tailwind
 ```
 
-
-## Capturas de pantalla del proyecto
+## 📸 Capturas de pantalla
 ![alt text](/Ejem/image.png)
 
