@@ -67,3 +67,7 @@ figma-survey-app/
 2. Para añadir una nueva pregunta, agrega el nuevo campo al estado inicial `formData` (ej. `nuevaPregunta: ''`).
 3. Clona un bloque de JSX (por ejemplo, el de "Design Feedback") y ajusta las etiquetas `id`, `name`, y la descripción para empatarlo con tu nueva propiedad en el estado.
 
+
+## Capturas de pantalla del proyecto
+![alt text](/Ejem/image.png)
+
