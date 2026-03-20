@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Variables ─────────────────────────────────────────── */
+:root {
+  --brand: #0f172a;        /* Un tono más serio, profesional */
+  --brand-light: #334155;
+  --brand-dark: #020617;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --border: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --success: #10b981;
+  --error: #ef4444;
+  --dark-bg: #0e0f1a;
+  --dark-surface: #161728;
+  --dark-surface-2: #1e2035;
+  --dark-border: #2d3058;
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--surface-2);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+/* ─── Tailwind Components ────────────────────────────────── */
+@layer components {
+  /* Glass card -> Convertido a Surface Card Minimalista */
+  .glass {
+    @apply bg-white border border-slate-200 shadow-sm;
+  }
+
+  /* Dark glass (admin) */
+  .glass-dark {
+    background: rgba(22, 23, 40, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--dark-border);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+  }
+
+  /* Input base - Menos redondo, más sobrio */
+  .input-base {
+    @apply w-full px-4 py-3 rounded-lg border border-slate-200 bg-white
+           text-slate-800 placeholder-slate-400 text-sm
+           focus:outline-none focus:border-slate-800 focus:ring-1 focus:ring-slate-800
+           transition-colors duration-200;
+  }
+
+  /* Button primary - Color oscuro profesional, sin sombras grandes */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-lg font-medium text-sm text-white
+           bg-slate-900 hover:bg-slate-800 active:bg-slate-950
+           transition-colors duration-200 cursor-pointer;
+  }
+
+  /* Button ghost */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           px-4 py-2.5 rounded-lg font-medium text-sm text-slate-600
+           bg-slate-50 hover:bg-slate-100 hover:text-slate-900 
+           transition-colors duration-200 cursor-pointer;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-sm;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+/* ─── Animations ─────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.animate-fade-in    { animation: fadeIn 0.4s ease both; }
+.animate-slide-in   { animation: slideIn 0.4s ease both; }
+.animate-scale-in   { animation: scaleIn 0.35s ease both; }
+
+/* ─── Stagger delays ─────────────────────────────────────── */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* ─── Dark admin scrollbar ───────────────────────────────── */
+.dark-scroll::-webkit-scrollbar-thumb { background: var(--dark-border); }
+.dark-scroll::-webkit-scrollbar-thumb:hover { background: #4a4f80; }
+
+/* ─── Figma Iframe ───────────────────────────────────────── */
+.figma-frame iframe {
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
